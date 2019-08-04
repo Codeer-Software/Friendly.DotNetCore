@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Codeer.Friendly.Windows.ConnectionServer\Codeer.Friendly.Windows.ConnectionServer.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="Copy &quot;$(TargetPath)&quot; &quot;../../Codeer.Friendly.Windows.DotNetCore.Starter/Resources/$(TargetFileName)&quot;&#xD;&#xA;Copy $(TargetDir)$(TargetName).exe &quot;../../Codeer.Friendly.Windows.DotNetCore.Starter/Resources/$(TargetName).exe&quot;" />
+  </Target>
+
+</Project>
